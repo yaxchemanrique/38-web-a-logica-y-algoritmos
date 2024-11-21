@@ -3,7 +3,20 @@ const todoInput = document.querySelector('#todo-input');
 const todosContainer = document.querySelector('#todos-container');
 const form = document.querySelector('#create-todo-form');
 
-let todos = ['sacar al perro', 'hacer el super'];
+let todos = [
+  {id: 1732158284586, label: "sacar al perro"}, 
+  {id: 1732158258137, label: "hacer el super"},
+];
+
+/*
+todo = {
+  label: 'sacar al perro',
+  id: Date.now()
+  // Math.random()
+  // crypto.randomUUID()
+  // label + Math.random() + Date.now()
+}
+*/
 
 // function clickHandler(event) {
 function submitHandler(event) {
@@ -14,8 +27,15 @@ function submitHandler(event) {
     alert('Por favor ingresa un to-do');
     return;
   }
+  
+  const id = Date.now();
 
-  todos.push(todoText);
+  const newTodo = {
+    label: todoText,
+    id: id,
+  }
+
+  todos.push(newTodo);
   console.log(todos);
 
   renderTodos();
@@ -23,25 +43,22 @@ function submitHandler(event) {
 }
 
 function deleteHandler(event) {
-  const itemToDelete = event.target.parentNode;
-  console.log(itemToDelete);
-
-  const textToDelete = itemToDelete.querySelector('span').textContent;
-  console.log(textToDelete)
-
+  const idToDelete = event.target.parentNode.getAttribute('data-id');
+  console.log(idToDelete);
 
   const newTodos = [];
-
   // debugger
 
   for(let i = 0; i < todos.length; i++) {
-    if(textToDelete !== todos[i]) {
+
+    if(idToDelete != todos[i].id) {
       newTodos.push(todos[i]);
     }
   }
 
   todos = newTodos;
-  renderTodos()
+  // console.log(newTodos)
+  renderTodos();
 }
 
 function renderTodos() {
@@ -49,9 +66,10 @@ function renderTodos() {
   
   for( let i = 0; i < todos.length; i++) {
     const todoItem = document.createElement('div');
+    todoItem.setAttribute('data-id', todos[i].id);
 
     const todoContent = document.createElement('span');
-    todoContent.textContent = todos[i];
+    todoContent.textContent = todos[i].label;
 
     const button = document.createElement('button');
     button.textContent = 'delete';
