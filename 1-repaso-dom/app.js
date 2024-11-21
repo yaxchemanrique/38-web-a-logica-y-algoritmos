@@ -1,7 +1,8 @@
 const addButton = document.querySelector('#add-button');
 const todoInput = document.querySelector('#todo-input');
+const todosContainer = document.querySelector('#todos-container');
 
-const todos = [];
+const todos = ['sacar al perro', 'hacer el super'];
 
 function clickHandler(event) {
   event.preventDefault();
@@ -12,9 +13,22 @@ function clickHandler(event) {
     return;
   }
 
-  console.log(todoText);
   todos.push(todoText);
   console.log(todos);
+
+  renderTodos();
+}
+
+function renderTodos() {
+  todosContainer.innerHTML = '';
+  
+  for( let i = 0; i < todos.length; i++) {
+    const todoItem = document.createElement('div');
+    todoItem.textContent = todos[i];
+    todosContainer.appendChild(todoItem);
+  }
 }
 
 addButton.addEventListener('click', clickHandler);
+
+renderTodos();
