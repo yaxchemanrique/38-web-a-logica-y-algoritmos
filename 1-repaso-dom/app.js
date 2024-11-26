@@ -43,11 +43,21 @@ function submitHandler(event) {
 }
 
 function deleteHandler(event) {
+  //! OP 1:
+  // e.target.parentNode Selecciona el nodo padre del disparador del evento
+  // se recupera de tipo 'string' y lo convertimos a numerco con parseInt
+  
+  //! OP 2:
+  // const idFromParentNode = event.target.parentNode.getAttribute('data-id')
+  // const idToDelete = parseInt(idFromParentNode)
+  
+  //! OP 3:
   const idToDelete = event.target.parentNode.getAttribute('data-id');
   console.log(idToDelete);
 
   const newTodos = [];
   // debugger
+  // parseInt, parseFloat, Number()
 
   for(let i = 0; i < todos.length; i++) {
 
