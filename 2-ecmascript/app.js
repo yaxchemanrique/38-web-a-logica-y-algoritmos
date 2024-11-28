@@ -139,6 +139,30 @@ const cuentas = [50, 30, 100, 80];
 const propinas = cuentas.map(x => x*1.15)
 console.log(propinas)
 
+cuentas.forEach((cuenta, index) => {
+  console.log(cuenta, index)
+})
+
+// tienen un retorno
+// return {number} - Retorna el resulatdo de la suma
+function suma(a, b) {
+  const resultado = a+ b;
+  return resultado
+}
+
+function formatPhoneNumber(str) {
+  //logica
+  return `(xx) xx-xx-xx-xx`
+}
+
+formatPhoneNumber('5512121212') // '(55) 12-12-12-12'
+
+const resultado = suma(2, 5);
+console.log(resultado);
+
+// function efecto secundario
+// return {void}
+
 /* const arr = [<p>hola</p>, <h1>titulos</h1>]
 [hola, titulos] */
 /* 
@@ -164,4 +188,34 @@ let recetas = [
 `<h2>${titulo de la receta}</h2>
 <p>${descripcion}</p>`
  */
+
+/* let emailInput = prompt('dime tu email'); //string
+let email = emailInput || 'user@mail.com';
+//             falsy ------->
+console.log(email) */
+
+let yaxche = {
+  username: 'yaxche',
+  mail: 'yaxche@mail.com',
+  age: 30,
+  job: 'sensei',
+  address: {
+    state: 'abc',
+    street: 'def',
+    zipCode: 123123,
+  }
+}
+
+// let yaxche = null;
+
+const job = yaxche?.address?.street;
+
+if(job) {
+  console.log(`tu trabajo es ${job}`);
+}
+
+console.log('fin del codigo');
+
+//* || toma como valores falsy a 0, '', NaN, null y undefined
+//* ?? toma como falsy solo a null y undefined
 
