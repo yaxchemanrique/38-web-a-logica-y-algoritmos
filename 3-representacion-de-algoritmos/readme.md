@@ -1,27 +1,47 @@
-# Titlo h1
+# Primer ejercicio DDF
 
-## Titlo h2
+Descripcion:
 
-### Titlo h3
+VAGO:
 
-- lista1
-- lista2
-- lista3
-- lista4
+Representa un algoritmo que cuente de un numero hacia abajo
 
-1. num1
-1. num2
-1. num3
-1. num4
+Específico:
 
-```js
-let x = 'foo'
+Representa un algoritmo que imprima en la consola los numeros empezando en un numero dado por el usuario hasta el 1.
+
+Entradas:
+
+- numero que provee el usuario (type: number)
+
+Proceso:
+
+() para rectangulo
+
+{} para rombo
+
+```mermaid
+flowchart 
+  A([inicio]) --> B
+  B(solicitar dato) --> C
+  C(guardamos dato en 'number') --> D
+  D{'number' es de tipo numero y mayor que cero} -- si --> E
+  D -- no --> F
+  F(alertar al usuario) --> B
+  E(imprimir number) --> G
+  G(number - 1) --> H
+  H{number = 0} -- no --> E
+  H -- sí --> J([Fin!])
 ```
 
-```css
-.foo {
-  color: white;
-}
-```
+Salida:
 
-Lorem, ipsum dolor sit amet consectetur, la variable `fulana` ... adipisicing elit. Optio quasi expedita blanditiis ipsa ad. Reiciendis laboriosam necessitatibus consequuntur blanditiis quos!
+(asumiendo que el numero proveido por el usuario es 5)
+
+```bash
+5
+4
+3
+2
+1
+```
