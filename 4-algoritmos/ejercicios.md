@@ -1,8 +1,30 @@
-# Ejercicios
+# Ejercicios de dos punteros
+
+## Two Sum || Suma de dos
+
+dado un target y un arreglo ordeando de mayor a menor, encuentra un par de numeros que sumados den el target y retorna el indice de esos numeros
+
+```js
+input: [2, 4, 6, 8, 10]
+target: 14
+resultado = [2, 3]
+```
+
+```js
+arr =  [2, 4, 6, 8, 10]
+
+function twoSum(arr) {
+  // body
+}
+
+twoSum(arr)
+```
 
 ## Cuadrados de un arreglo
 
 Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+
+Dado un arregl de nuemro esteros acomodados de menor a mayor, retorna un arreglo the los cuadrados de cada numero acomodados de menor a mayor.
 
 ### Example 1
 
