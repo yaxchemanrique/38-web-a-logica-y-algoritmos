@@ -3,17 +3,18 @@ const k = 3;
 
 function maxSum(arr, k) {
   //debugger
-  let initialWindow = arr.slice(0, k);
+  let ventanaInicial = arr.slice(0, k); // primer cuadrito azul
   
-  let initialSum = initialWindow.reduce((acc, value) => acc + value)
-  let maxSum = initialSum;
+  let sumaInicial = ventanaInicial.reduce((acc, value) => acc + value)
+  // -4 + -1 + 0 = -5
+  let sumaMayor = sumaInicial;
 
   for ( let i = k; i < arr.length; i++) {
-    initialSum += arr[i] - arr[i - k];
-    maxSum = Math.max(maxSum, initialSum);
+    sumaInicial = sumaInicial + arr[i] - arr[i - k];
+    sumaMayor = Math.max(sumaMayor, sumaInicial); // 2
   }
-  
-  return maxSum;
+
+  return sumaMayor;
 }
 
 console.log(maxSum(array, k))
